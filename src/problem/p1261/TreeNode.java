@@ -14,11 +14,11 @@ public class TreeNode {
     TreeNode() {
     }
 
-    TreeNode(Integer val) {
+    public TreeNode(Integer val) {
         this.val = val;
     }
 
-    TreeNode(int val, TreeNode left, TreeNode right) {
+    public TreeNode(int val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
         this.right = right;
@@ -56,7 +56,7 @@ public class TreeNode {
         return root;
     }
 
-    // Hàm duyệt cây theo thứ tự Inorder (LNR)
+    // Hàm duyệt cây theo thứ tự Reorder (NLR)
     public static void inorderTraversal(TreeNode root) {
         if (root == null) return;
         System.out.print(root.val + " ");
