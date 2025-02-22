@@ -47,10 +47,8 @@ public class TreeNode {
             }
             // Gán con phải
             if (arr.get(i) != null) {
-                if (i < arr.size()) {
-                    current.right = new TreeNode(arr.get(i));
-                    queue.add(current.right);
-                }
+                current.right = new TreeNode(arr.get(i));
+                queue.add(current.right);
             }
         }
         return root;
