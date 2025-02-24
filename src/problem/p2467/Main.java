@@ -3,7 +3,6 @@ package problem.p2467;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Main {
     public static int mostProfitablePath(int[][] edges, int bob, int[] amount) {
