@@ -2,6 +2,9 @@ package problem.p3208m;
 
 public class Main {
     public static int numberOfAlternatingGroups(int[] colors, int k) {
+        /*
+
+        Solution 1
         int n = colors.length;
         int l = 0;
         int limit = n + k - 1;
@@ -17,6 +20,24 @@ public class Main {
                 count += (r - l + 1) - k;
 
             l = r;
+        }
+
+        return count;
+         */
+
+        // Solution 2
+        int n = colors.length;
+        int l = 0;
+        int limit = n + k - 1;
+        int count = 0;
+
+        for (int r = 1; r < limit; r++){
+            if ( colors[r%n] == colors[(r-1)%n]){
+                l = r;
+            }
+
+            if (r - l + 1 > k) l++;
+            if (r - l + 1 == k) count++;
         }
 
         return count;
