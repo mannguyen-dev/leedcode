@@ -1,8 +1,6 @@
 package dsa.tree;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class TreeNode {
@@ -50,6 +48,33 @@ public class TreeNode {
         return root;
     }
 
+    public static TreeNode buildTreeBFS(Integer[] arr) {
+        if (arr == null || arr.length == 0) {
+            return null;
+        }
+
+        TreeNode root = new TreeNode(arr[0]);
+        int n = arr.length;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int i = 1;
+        while (i < n) {
+            TreeNode node = queue.poll();
+            assert node != null;
+            node.left = arr[i] == null? null:  new TreeNode(arr[i]);
+            queue.add(node.left);
+            i++;
+            if (i < n) {
+                node.right = arr[i] == null? null:  new TreeNode(arr[i]);
+                queue.add(node.right);
+                i++;
+            }
+        }
+
+        return root;
+    }
+
     public static void printLNR(TreeNode root) {
         if (root == null) {
             return;
@@ -57,5 +82,14 @@ public class TreeNode {
         printLNR(root.left);
         System.out.print(root.val + " ");
         printLNR(root.right);
+    }
+
+    public static void printNLR(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        System.out.print(root.val + " ");
+        printNLR(root.left);
+        printNLR(root.right);
     }
 }
