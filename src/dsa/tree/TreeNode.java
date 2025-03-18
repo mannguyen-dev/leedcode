@@ -1,26 +1,61 @@
 package dsa.tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class TreeNode {
-    String data;
-    ArrayList<TreeNode> children;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
-    public TreeNode(String data){
-        this.data = data;
-        this.children = new ArrayList<TreeNode>();
+    TreeNode() {
     }
 
-    public void addChildren(TreeNode node) {
-        this.children.add(node);
+    public TreeNode(int val) {
+        this.val = val;
     }
 
-    public String print(int level){
-        StringBuilder ret;
-        ret = new StringBuilder("  ".repeat(level) + data + "\n");
-        for (TreeNode node : this.children){
-            ret.append(node.print(level + 1));
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+
+    public static TreeNode buildTreeBFS(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return null;
         }
-        return ret.toString();
+
+        TreeNode root = new TreeNode(arr[0]);
+        int n = arr.length;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int i = 1;
+        while (i < n) {
+            TreeNode node = queue.poll();
+            assert node != null;
+            node.left = new TreeNode(arr[i]);
+            queue.add(node.left);
+            i++;
+            if (i < n) {
+                node.right = new TreeNode(arr[i]);
+                queue.add(node.right);
+                i++;
+            }
+        }
+
+        return root;
+    }
+
+    public static void printLNR(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        printLNR(root.left);
+        System.out.print(root.val + " ");
+        printLNR(root.right);
     }
 }

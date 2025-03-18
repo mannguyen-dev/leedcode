@@ -2,13 +2,13 @@ package dsa.tree;
 
 public class Main {
     public static void main(String[] args) {
-        TreeNode drinks = new TreeNode("Drinks");
-        TreeNode hot = new TreeNode("Hot");
-        TreeNode cold = new TreeNode("Cold");
-        TreeNode wine = new TreeNode("wine");
-        TreeNode tea = new TreeNode("Tea");
-        TreeNode coffee = new TreeNode("Coffee");
-        TreeNode beer = new TreeNode("Beer");
+        NormalTreeNode drinks = new NormalTreeNode("Drinks");
+        NormalTreeNode hot = new NormalTreeNode("Hot");
+        NormalTreeNode cold = new NormalTreeNode("Cold");
+        NormalTreeNode wine = new NormalTreeNode("wine");
+        NormalTreeNode tea = new NormalTreeNode("Tea");
+        NormalTreeNode coffee = new NormalTreeNode("Coffee");
+        NormalTreeNode beer = new NormalTreeNode("Beer");
 
         drinks.addChildren(hot);
         drinks.addChildren(cold);
