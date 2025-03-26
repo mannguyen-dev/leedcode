@@ -2,8 +2,6 @@ package problem.p0xxx.p108e;
 
 import dsa.tree.TreeNode;
 
-import java.util.Arrays;
-
 public class SortedArrayToBST {
     public static TreeNode sortedArrayToBST(int[] nums) {
         return buildBST(nums, 0, nums.length - 1);
