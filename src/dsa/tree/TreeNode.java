@@ -61,7 +61,7 @@ public class TreeNode {
         int i = 1;
         while (i < n) {
             TreeNode node = queue.poll();
-            assert node != null;
+            if (node == null) continue;
             node.left = arr[i] == null? null:  new TreeNode(arr[i]);
             queue.add(node.left);
             i++;
