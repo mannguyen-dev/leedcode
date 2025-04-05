@@ -20,7 +20,6 @@ public class ValidPalindrome {
             while (l < s.length() && !validChar(s.charAt(l)) ) l++;
             while (r > 0 && !validChar(s.charAt(r))) r--;
             if (r == 0) return true;
-            System.out.println(s.charAt(l) + " "+s.charAt(r));
             if (!compareCharInsensitive(s.charAt(l), s.charAt(r))) return false;
             l++;
             r--;
