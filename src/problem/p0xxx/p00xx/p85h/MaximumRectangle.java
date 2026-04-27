@@ -28,6 +28,7 @@ public class MaximumRectangle {
             for (int i = 0; i < m; i++){
                 if (line[i] == '0'){
                     histogram[i] = 0;
+                    Object s = "123";
                 } else {
                     histogram[i]++;
                 }
